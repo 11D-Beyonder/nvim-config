@@ -2,7 +2,7 @@
 
 ## Project Structure
 
-This repository is a compact Neovim configuration. `init.lua` enables the module cache and loads the configuration modules. `options.lua` holds global editor options and leader-key settings, `plugins.lua` declares and configures plugins, `keymaps.lua` defines key mappings, and `autocmds.lua` defines autocommands. `nvim-pack-lock.json` records exact plugin revisions; there are no separate source, test, or asset directories.
+This repository is a compact Neovim configuration. `init.lua` enables the module cache and loads the configuration modules. `options.lua` holds global editor options and leader-key settings, `lua/plugins/init.lua` declares plugins and loads their configurations, and each plugin's setup lives in its own module under `lua/plugins/`. `keymaps.lua` defines key mappings, and `autocmds.lua` defines autocommands. `nvim-pack-lock.json` records exact plugin revisions; there are no separate source, test, or asset directories.
 
 ## Development and Validation
 
@@ -16,7 +16,7 @@ There is no build step, test suite, or formatter configured. For UI-dependent ch
 
 ## Lua Style and Configuration Practices
 
-Use two spaces for indentation, as in the existing Lua files. Keep Neovim option assignments in `options.lua`, plugin declarations and setup in `plugins.lua`, key mappings in `keymaps.lua`, and autocommands in `autocmds.lua`. Prefer explicit `vim.o`, or `vim.g` assignments consistent with the setting being changed, and add short comments when behavior or timing is not self-evident. Use Neovim's conventional special-key spelling in mappings (for example, `<Esc>`, `<CR>`, and `<C-w>`); command strings conventionally use lowercase `<cmd>`. Preserve valid Lua syntax and keep plugin source names consistent with their lockfile entries.
+Use two spaces for indentation, as in the existing Lua files. Keep Neovim option assignments in `options.lua`, plugin declarations in `lua/plugins/init.lua`, each plugin's setup in its own file under `lua/plugins/`, key mappings in `keymaps.lua`, and autocommands in `autocmds.lua`. Prefer explicit `vim.o`, or `vim.g` assignments consistent with the setting being changed, and add short comments when behavior or timing is not self-evident. Use Neovim's conventional special-key spelling in mappings (for example, `<Esc>`, `<CR>`, and `<C-w>`); command strings conventionally use lowercase `<cmd>`. Preserve valid Lua syntax and keep plugin source names consistent with their lockfile entries.
 
 ## Plugin Lockfile
 
