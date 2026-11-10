@@ -8,3 +8,4 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file [e]xplore" })
 
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[Q]uit" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "[W]rite" })

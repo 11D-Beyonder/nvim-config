@@ -8,9 +8,6 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Let plugins know that a Nerd Font is available for icons.
-vim.g.have_nerd_font = true
-
 vim.o.number = true
 vim.o.relativenumber = true
 
