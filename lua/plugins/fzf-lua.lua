@@ -3,6 +3,11 @@ require("fzf-lua").setup {
     file_icons = true,
     git_icons = true,
   },
+  winopts = {
+    preview = {
+      default = "bat",
+    }
+  }
 }
 
 local fzf = require("fzf-lua")
