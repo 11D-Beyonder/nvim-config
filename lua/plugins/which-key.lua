@@ -1,6 +1,9 @@
 require("which-key").setup {
   ---@type false | "classic" | "modern" | "helix"
   preset = "helix",
+  icons = {
+    rules = false
+  }
 }
 
 require("which-key").add {
