@@ -33,10 +33,13 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
+    "mini.icons": {
+      "rev": "fc90b3925a2a68282be06e28cfe0cbb366c75dad",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
     "mini.pairs": {
       "rev": "4a014143fcb4e9df26198ccb3ecff3b9e77a048c",
-      "src": "https://github.com/nvim-mini/mini.pairs",
-      "version": "'stable'"
+      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "nvim-lspconfig": {
       "rev": "443d92c6bea761ab54cdde46fb197a2b4d614bdd",

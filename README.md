@@ -2,7 +2,7 @@
 
 Personal Neovim configuration. The entry point is `init.lua`; plugin configuration lives in `lua/plugins/` and plugins are managed with Neovim's built-in `vim.pack`.
 
-`mini.pairs` automatically inserts matching closing quotes and brackets while typing in Insert mode.
+`mini.pairs` automatically inserts matching closing quotes and brackets while typing in Insert mode. `mini.icons` provides filetype icons and a compatibility layer for plugins that use the `nvim-web-devicons` API.
 
 ## External Dependencies
 
