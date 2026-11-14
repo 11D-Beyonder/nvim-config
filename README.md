@@ -11,6 +11,7 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 | `fzf` | Fuzzy matching interface for `fzf-lua` | Fuzzy finders |
 | `ripgrep` (`rg`) | Text search in `fzf-lua`; required for grep pickers on Windows | Search pickers |
 | `lua-language-server` | Lua completion, diagnostics, and navigation through `lua_ls` | Lua LSP features |
+| `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
 | `fd` | Faster file discovery in `fzf-lua` | Optional file-finder enhancement |
 | `bat` | File previews in `fzf-lua` | File previews |
 
