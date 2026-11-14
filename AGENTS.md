@@ -25,4 +25,5 @@ When adding or updating plugins, update the `vim.pack.add` declarations in `init
 ## Commits and Pull Requests
 
 - Use the Angular Conventional Commits format: `<type>(<scope>): <imperative summary>`. Common types include `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, and `chore`; add `!` after the type or scope for a breaking change and explain it with a `BREAKING CHANGE:` footer when appropriate. Keep the subject concise and imperative, for example `feat(init): add statusline plugin` or `fix(options): correct split behavior`. The existing history also follows this scoped format. Pull requests should explain the user-visible change, list any manual startup or UI checks performed, and include screenshots only when a visual change is relevant. Keep changes focused and include lockfile updates when plugin revisions change.
+- Before every commit, run `stylua .` to format all Lua files recursively, update `README.md` to reflect the changes, and then create the commit.
 - Update `AGENTS.md` when repository structure or development conventions change, and before committing changes that make its guidance stale.
