@@ -1,8 +1,8 @@
 -- General Neovim options.
 
 -- Set these before plugins load so their mappings use the intended leader keys.
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Disable the built-in netrw file explorer; nvim-tree is used instead.
 vim.g.loaded_netrw = 1
@@ -12,14 +12,14 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Enable mouse support in all modes.
-vim.o.mouse = "a"
+vim.o.mouse = 'a'
 
 -- Show the current mode (such as INSERT or VISUAL) in the command area.
 vim.o.showmode = true
 
 -- Sync Neovim's unnamed register with the operating system clipboard.
 -- Schedule this after startup because clipboard initialization can add startup time.
-vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- Indent wrapped screen lines to match the start of the text on the original line.
 -- For example, when a long line wraps, its continuation aligns with the text:
@@ -41,7 +41,7 @@ vim.o.smartcase = true
 -- Always reserve the sign column to the left of the line numbers for markers
 -- such as diagnostics, Git changes, or breakpoints.
 -- Example: an error marker can appear there without shifting the code to the right.
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = 'yes'
 
 -- Wait 250 ms after the last keystroke before running certain timed updates.
 -- Example: diagnostics or Git signs can refresh shortly after you pause typing.
@@ -65,7 +65,7 @@ vim.o.list = true
 -- Preview a substitution while typing the command, in a temporary split window.
 -- Example: as you enter `:%s/cat/dog/g`, matching `cat` text previews as `dog`.
 -- Press Enter to apply the replacement, or Esc to cancel without changing the text.
-vim.o.inccommand = "split"
+vim.o.inccommand = 'split'
 
 -- Highlight the entire screen line where the cursor is located.
 -- Example: when the cursor moves from line 12 to line 13, the highlight follows it.
@@ -88,6 +88,4 @@ vim.o.confirm = true
 vim.o.termguicolors = true
 
 -- Use this font in Neovide, the graphical Neovim client.
-if vim.g.neovide then
-  vim.opt.guifont = "Maple_Mono_NF_CN,JetBrains_Mono,Fira_Code:h12"
-end
+if vim.g.neovide then vim.opt.guifont = 'Maple_Mono_NF_CN,JetBrains_Mono,Fira_Code:h12' end

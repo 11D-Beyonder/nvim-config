@@ -1,11 +1,10 @@
-vim.pack.add{
+vim.pack.add {
   { src = 'https://github.com/neovim/nvim-lspconfig' },
 }
 
 local servers = {
   lua_ls = {
     on_init = function(client)
-
       if client.workspace_folders then
         local path = client.workspace_folders[1].name
         if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
@@ -32,7 +31,7 @@ local servers = {
     settings = {
       Lua = {},
     },
-  }
+  },
 }
 
 for name, server in pairs(servers) do
