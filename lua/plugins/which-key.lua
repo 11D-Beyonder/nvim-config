@@ -1,3 +1,5 @@
+vim.pack.add { 'https://github.com/folke/which-key.nvim' }
+
 require('which-key').setup {
   ---@type false | "classic" | "modern" | "helix"
   preset = 'helix',
