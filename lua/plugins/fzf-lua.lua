@@ -45,5 +45,4 @@ vim.keymap.set('n', '<leader>gT', fzf.git_stash, { desc = 'Git stash' })
 vim.keymap.set('n', '<leader>lD', fzf.diagnostics_workspace, { desc = 'Workspace diagnostics' })
 vim.keymap.set('n', '<leader>ls', fzf.lsp_document_symbols, { desc = 'Document symbols' })
 
--- Requires a TODO-comments integration that defines the TodoFzfLua command.
--- vim.keymap.set("n", "<leader>fT", "<cmd>TodoFzfLua<CR>", { desc = "Find TODO comments" })
+vim.keymap.set('n', '<leader>fT', '<cmd>TodoFzfLua<CR>', { desc = 'Find TODO comments' })
