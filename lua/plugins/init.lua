@@ -10,5 +10,5 @@ require 'plugins.nvim-lspconfig'
 require 'plugins.blink'
 require 'plugins.conform'
 require 'plugins.todo-comments'
--- TODO: bufferline
 require 'plugins.lualine'
+require 'plugins.bufferline'

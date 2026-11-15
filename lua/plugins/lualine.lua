@@ -1,5 +1,5 @@
 vim.pack.add { 'https://github.com/nvim-lualine/lualine.nvim', 'https://github.com/linrongbin16/lsp-progress.nvim' }
-require('lsp-progress').setup()
+require('lsp-progress').setup {}
 require('lualine').setup {
   options = {
     globalstatus = true,
