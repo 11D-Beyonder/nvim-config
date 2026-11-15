@@ -6,6 +6,8 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 `todo-comments.nvim` highlights code comments such as `TODO:` and `FIXME:`. Use `<leader>fT` to search TODO comments in the project with `fzf-lua`, or `]t` and `[t` to jump to the next and previous comments.
 
+`lualine.nvim` displays the statusline, including LSP task progress from `lsp-progress.nvim`.
+
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
 
 ## External Dependencies

@@ -6,9 +6,9 @@ require 'plugins.gitsigns'
 require 'plugins.which-key'
 require 'plugins.fzf-lua'
 require 'plugins.guess-indent'
-require 'plugins.fidget'
 require 'plugins.nvim-lspconfig'
 require 'plugins.blink'
 require 'plugins.conform'
 require 'plugins.todo-comments'
--- TODO: lualine, bufferline
+-- TODO: bufferline
+require 'plugins.lualine'
