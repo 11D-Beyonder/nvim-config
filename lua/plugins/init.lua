@@ -1,5 +1,6 @@
 require 'plugins.plenary'
 require 'plugins.mini'
+require 'plugins.snacks'
 require 'plugins.catppuccin'
 require 'plugins.nvim-tree'
 require 'plugins.gitsigns'

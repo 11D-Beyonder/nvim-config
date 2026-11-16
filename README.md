@@ -14,7 +14,7 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use `fzf-lua`.
 
-`<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using Neovim's input prompt.
+`<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
 
