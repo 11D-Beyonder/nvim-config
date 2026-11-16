@@ -4,4 +4,11 @@ vim.g.rustaceanvim = {
   },
 }
 
-vim.pack.add { 'https://github.com/mrcjkb/rustaceanvim' }
+vim.pack.add {
+  {
+    src = 'https://github.com/mrcjkb/rustaceanvim',
+    -- To avoid being surprised by breaking changes,
+    -- I recommend you set a version range
+    version = vim.version.range '^9',
+  },
+}
