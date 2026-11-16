@@ -10,6 +10,11 @@ require('fzf-lua').setup {
       default = 'bat',
     },
   },
+  previewers = {
+    bat = {
+      theme = 'Catppuccin Macchiato',
+    },
+  },
 }
 
 local fzf = require 'fzf-lua'

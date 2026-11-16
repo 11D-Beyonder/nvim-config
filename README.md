@@ -16,6 +16,8 @@ When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type defin
 
 `<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
+`fzf-lua` uses `bat` for file previews with the `Catppuccin Macchiato` theme, matching the editor's colorscheme. The installed `bat` must include this theme (`bat --list-themes`).
+
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
 
 ## External Dependencies
