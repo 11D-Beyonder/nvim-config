@@ -6,8 +6,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
+    local fzf = require 'fzf-lua'
+
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { buffer = event.buf, desc = '[R]ename' })
-    vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = event.buf, desc = 'Code [A]ction' })
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = event.buf, desc = '[G]oto [D]eclaration' })
+    vim.keymap.set('n', '<leader>la', fzf.lsp_code_actions, { buffer = event.buf, desc = 'Code [A]ction' })
+    vim.keymap.set('n', 'gd', fzf.lsp_definitions, { buffer = event.buf, desc = 'Goto definition' })
+    vim.keymap.set('n', 'gD', fzf.lsp_declarations, { buffer = event.buf, desc = 'Goto declaration' })
+    vim.keymap.set('n', 'gy', fzf.lsp_typedefs, { buffer = event.buf, desc = 'Goto type definition' })
+    vim.keymap.set('n', 'gi', fzf.lsp_implementations, { buffer = event.buf, desc = 'Goto implementation' })
+    vim.keymap.set('n', 'gO', fzf.lsp_document_symbols, { buffer = event.buf, desc = 'Document symbols' })
+    vim.keymap.set('n', 'gr', fzf.lsp_references, { buffer = event.buf, desc = 'References' })
   end,
 })
