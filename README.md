@@ -10,6 +10,8 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 `bufferline.nvim` displays open buffers in a tabline. Use `]b` and `[b` to move between buffers, `<leader>x` to close the current buffer, `<leader>bb` to pick a buffer, `<leader>bc` to close other buffers, and `<leader>bd` to pick buffers to close.
 
+`nvim-lspconfig` enables `lua_ls` for Lua and `clangd` for C/C++.
+
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
 
 ## External Dependencies
@@ -21,6 +23,7 @@ Plugin and configuration choices are informed by current practices in establishe
 | `fzf` | Fuzzy matching interface for `fzf-lua` | Fuzzy finders |
 | `ripgrep` (`rg`) | Text search in `fzf-lua`; required for grep pickers on Windows | Search pickers |
 | `lua-language-server` | Lua completion, diagnostics, and navigation through `lua_ls` | Lua LSP features |
+| `clangd` | C/C++ completion, diagnostics, and navigation | C/C++ LSP features |
 | `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
 | `fd` | Faster file discovery in `fzf-lua` | Optional file-finder enhancement |
 | `bat` | File previews in `fzf-lua` | File previews |

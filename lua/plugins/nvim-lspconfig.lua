@@ -7,6 +7,7 @@ require('lazydev').setup()
 
 local servers = {
   lua_ls = {},
+  clangd = {},
 }
 
 for name, server in pairs(servers) do
