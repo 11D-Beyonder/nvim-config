@@ -9,7 +9,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local fzf = require 'fzf-lua'
 
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { buffer = event.buf, desc = '[R]ename' })
-    vim.keymap.set('n', '<leader>la', fzf.lsp_code_actions, { buffer = event.buf, desc = 'Code [A]ction' })
+    if vim.bo[event.buf].filetype == 'rust' then
+      vim.keymap.set('n', '<leader>la', '<cmd>RustLsp codeAction<CR>', { buffer = event.buf, desc = 'Code [A]ction' })
+      vim.keymap.set('n', 'K', '<cmd>RustLsp hover actions<CR>', { buffer = event.buf, desc = 'Hover actions' })
+    else
+      vim.keymap.set('n', '<leader>la', fzf.lsp_code_actions, { buffer = event.buf, desc = 'Code [A]ction' })
+    end
     vim.keymap.set('n', 'gd', fzf.lsp_definitions, { buffer = event.buf, desc = 'Goto definition' })
     vim.keymap.set('n', 'gD', fzf.lsp_declarations, { buffer = event.buf, desc = 'Goto declaration' })
     vim.keymap.set('n', 'gy', fzf.lsp_typedefs, { buffer = event.buf, desc = 'Goto type definition' })

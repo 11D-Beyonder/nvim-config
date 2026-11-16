@@ -16,6 +16,8 @@ When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type defin
 
 `<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
+`rustaceanvim` manages rust-analyzer for Rust files. Automatic checks use `cargo check` instead of Clippy. In Rust buffers, `<leader>la` opens its grouped code actions and `K` shows hover actions. Navigation and rename mappings use the standard LSP interface with rustaceanvim's client.
+
 `fzf-lua` uses `bat` for file previews with the `Catppuccin Macchiato` theme, matching the editor's colorscheme. The installed `bat` must include this theme (`bat --list-themes`).
 
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
@@ -30,6 +32,7 @@ Plugin and configuration choices are informed by current practices in establishe
 | `ripgrep` (`rg`) | Text search in `fzf-lua`; required for grep pickers on Windows | Search pickers |
 | `lua-language-server` | Lua completion, diagnostics, and navigation through `lua_ls` | Lua LSP features |
 | `clangd` | C/C++ completion, diagnostics, and navigation | C/C++ LSP features |
+| `rust-analyzer` | Rust completion, diagnostics, and navigation through `rustaceanvim` | Rust LSP features |
 | `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
 | `fd` | Faster file discovery in `fzf-lua` | Optional file-finder enhancement |
 | `bat` | File previews in `fzf-lua` | File previews |
