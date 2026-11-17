@@ -10,6 +10,8 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 `bufferline.nvim` displays open buffers in a tabline. Use `]b` and `[b` to move between buffers, `<leader>x` to close the current buffer, `<leader>bb` to pick a buffer, `<leader>bc` to close other buffers, and `<leader>bd` to pick buffers to close.
 
+`auto-save.nvim` saves named, writable file buffers 1 second after the last change, including while in Insert mode. It also saves immediately when leaving a buffer, losing focus, quitting, or suspending Neovim. Use `:ASToggle` to toggle auto-save. Unnamed buffers need an initial manual save to choose a filename. Following AstroCommunity's approach, automatic saves skip Conform formatting while manual saves still format; other write events remain enabled.
+
 `nvim-lspconfig` enables `lua_ls` for Lua and `clangd` for C/C++.
 
 When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use `fzf-lua`.

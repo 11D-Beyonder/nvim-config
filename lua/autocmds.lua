@@ -1,3 +1,10 @@
+-- Skip formatting during auto-save while keeping other write events active.
+vim.api.nvim_create_autocmd('User', {
+  group = vim.api.nvim_create_augroup('auto-save-format', { clear = true }),
+  pattern = { 'AutoSaveWritePre', 'AutoSaveWritePost' },
+  callback = function(event) vim.b[event.data.saved_buffer].autosave = event.match == 'AutoSaveWritePre' end,
+})
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),

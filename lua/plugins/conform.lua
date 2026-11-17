@@ -4,9 +4,10 @@ require('conform').setup {
   formatters_by_ft = {
     lua = { 'stylua' },
   },
-  format_on_save = {
-    timeout_ms = 500,
-  },
+  format_on_save = function(buf)
+    if vim.b[buf].autosave then return end
+    return { timeout_ms = 500 }
+  end,
   default_format_opts = {
     lsp_format = 'fallback',
   },
