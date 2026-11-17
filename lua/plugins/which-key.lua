@@ -10,4 +10,5 @@ require('which-key').setup {
 
 require('which-key').add {
   { '<leader>f', group = 'Find', icon = { icon = '', color = 'blue' } },
+  { '<leader>t', group = 'Terminal' },
 }

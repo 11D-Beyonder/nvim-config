@@ -16,6 +16,22 @@ When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type defin
 
 `<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
+`snacks.terminal` provides terminals with AstroNvim-style shortcuts (`<leader>` is Space):
+
+| Shortcut | Action |
+| --- | --- |
+| `<C-'>` | Hide the current Snacks terminal, or toggle the bottom terminal from an editor buffer; available in Normal, Insert, and Terminal modes |
+| `<leader>tf` | Toggle a floating terminal |
+| `<leader>th` | Toggle a bottom terminal, 10 lines high |
+| `<leader>tv` | Toggle a right terminal, 80 columns wide |
+| `<leader>tn` | Create a new bottom terminal alongside any existing bottom terminals |
+| `<leader>tl` | Select a visible or hidden Snacks terminal with fzf-lua, then show and focus it |
+| `<C-h/j/k/l>` | Move between windows from a split terminal; floating terminals pass these keys to the shell |
+
+Each layout reuses its own shell per working directory; hiding a terminal keeps its process running. Terminals open in Neovim's current working directory and enter input mode automatically. Use Snacks' default double `<Esc>` (or Neovim's `<C-\><C-n>`) to return to Normal mode, and type `exit` in the shell to end it.
+
+`<leader>tn` always creates an independent shell. From a terminal, double `<Esc>` then press `<leader>tn` to add another bottom split. `<leader>tl` lists terminal IDs, visibility, titles, and starting directories, including terminals from other working directories. Selecting one preserves its shell and layout; cancelling leaves terminals unchanged.
+
 `rustaceanvim` is constrained to version 9.x and manages rust-analyzer for Rust files. Automatic checks use `cargo check` instead of Clippy. In Rust buffers, `<leader>la` opens its grouped code actions and `K` shows hover actions. Navigation and rename mappings use the standard LSP interface with rustaceanvim's client.
 
 `nvim-treesitter` provides highlighting for Rust, Lua, C/C++, Python, Bash, Bazel/Starlark, HTML, CSS, JavaScript/JSX, TypeScript/TSX, JSON, YAML, TOML, Vimscript, and Markdown, including code blocks in LSP hover windows. Its parser list and highlighting configuration live in `lua/plugins/nvim-treesitter.lua`. Startup installs only missing parsers; existing parsers are skipped. Run `:TSUpdate` after updating the plugin to keep parsers compatible.
