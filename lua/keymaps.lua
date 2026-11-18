@@ -1,3 +1,43 @@
+local picker = Snacks.picker
+
+vim.keymap.set('n', '<leader>f<CR>', picker.resume, { desc = 'Resume previous search' })
+vim.keymap.set('n', '<leader>fa', function() picker.files { cwd = vim.fn.stdpath 'config' } end, { desc = 'Find Neovim config files' })
+vim.keymap.set('n', '<leader>fb', picker.buffers, { desc = 'Find buffers' })
+vim.keymap.set('n', '<leader>fc', picker.grep_word, { desc = 'Search word under cursor' })
+vim.keymap.set('n', '<leader>fC', picker.commands, { desc = 'Find commands' })
+vim.keymap.set('n', '<leader>ff', picker.files, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fF', function() picker.files { hidden = true, ignored = true } end, { desc = 'Find all files' })
+vim.keymap.set('n', '<leader>fg', picker.git_files, { desc = 'Find Git files' })
+vim.keymap.set('n', '<leader>fh', picker.help, { desc = 'Find help' })
+vim.keymap.set('n', '<leader>fk', picker.keymaps, { desc = 'Find keymaps' })
+vim.keymap.set('n', '<leader>fm', picker.man, { desc = 'Find man pages' })
+vim.keymap.set('n', '<leader>fo', picker.recent, { desc = 'Find recent files' })
+vim.keymap.set('n', '<leader>fO', function() picker.recent { filter = { cwd = true } } end, { desc = 'Find recent files in cwd' })
+vim.keymap.set('n', "<leader>f'", picker.marks, { desc = 'Find marks' })
+vim.keymap.set('n', '<leader>fr', picker.registers, { desc = 'Find registers' })
+vim.keymap.set('n', '<leader>fs', picker.lsp_symbols, { desc = 'Find document symbols' })
+vim.keymap.set('n', '<leader>ft', picker.colorschemes, { desc = 'Find colorschemes' })
+vim.keymap.set('n', '<leader>fw', picker.grep, { desc = 'Search text in real time' })
+vim.keymap.set('n', '<leader>fW', function()
+  vim.ui.input({ prompt = 'Search text: ' }, function(search)
+    if search then Snacks.picker.grep { search = search, live = false, need_search = false } end
+  end)
+end, { desc = 'Search text' })
+vim.keymap.set('n', '<leader>fu', picker.undo, { desc = 'Find undo history' })
+
+vim.keymap.set('n', '<leader>gb', picker.git_branches, { desc = 'Git branches' })
+vim.keymap.set('n', '<leader>gc', picker.git_log, { desc = 'Git commits' })
+vim.keymap.set('n', '<leader>gC', picker.git_log_file, { desc = 'Git commits for current file' })
+vim.keymap.set('n', '<leader>gt', picker.git_status, { desc = 'Git status' })
+vim.keymap.set('n', '<leader>gT', picker.git_stash, { desc = 'Git stash' })
+
+vim.keymap.set('n', '<leader>lD', picker.diagnostics, { desc = 'Workspace diagnostics' })
+vim.keymap.set('n', '<leader>ls', picker.lsp_symbols, { desc = 'Document symbols' })
+
+vim.keymap.set('n', '<leader>fT', function() picker.todo_comments() end, { desc = 'Find TODO comments' })
+
+vim.keymap.set('n', '<leader>f/', picker.lines, { desc = 'Find lines in current buffer' })
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -58,7 +98,7 @@ vim.keymap.set('n', '<leader>tl', function()
     return
   end
   table.sort(terminals, function(a, b) return a.buf < b.buf end)
-  require('fzf-lua.providers.ui_select').ui_select(terminals, {
+  vim.ui.select(terminals, {
     prompt = 'Terminals',
     format_item = function(terminal)
       local cwd = vim.api.nvim_buf_get_name(terminal.buf):match '^term://(.*)//%d+:'
@@ -72,8 +112,7 @@ vim.keymap.set('n', '<leader>tl', function()
   }, function(terminal)
     if terminal and terminal:buf_valid() then
       terminal:show():focus()
-      -- Enter input mode after fzf-lua finishes restoring Terminal-Normal mode.
-      vim.api.nvim_feedkeys(vim.keycode '<C-\\><C-n>i', 'n', false)
+      vim.cmd.startinsert()
     end
   end)
 end, { desc = 'List terminals' })

@@ -15,7 +15,7 @@ vim.api.nvim_create_user_command('LspRestart', 'lsp restart <args>', {
   complete = function(arg) return vim.fn.getcompletion('lsp restart ' .. arg, 'cmdline') end,
 })
 
--- Shared diagnostic icons for the sign column and fzf-lua.
+-- Diagnostic icons for the sign column.
 vim.diagnostic.config {
   signs = {
     text = {

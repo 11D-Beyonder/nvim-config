@@ -2,7 +2,7 @@
 
 ## Project Structure
 
-This repository is a compact Neovim configuration. `init.lua` enables the module cache and loads the configuration modules. `options.lua` holds global editor options and leader-key settings, `lua/plugins/init.lua` declares plugins and loads their configurations, and each plugin's setup lives in its own module under `lua/plugins/`. `lua/keymaps.lua` defines key mappings, and `lua/autocmds.lua` defines autocommands. `nvim-pack-lock.json` records exact plugin revisions; there are no separate source, test, or asset directories.
+This repository is a compact Neovim configuration. `init.lua` enables the module cache and loads the configuration modules. `lua/options.lua` holds global editor options and leader-key settings, `lua/plugins/init.lua` loads plugin modules, and each plugin's declaration and setup live in its own module under `lua/plugins/`. `lua/plugins/snacks.lua` configures Snacks Picker, input, and terminals. `lua/keymaps.lua` defines key mappings, including picker shortcuts, and `lua/autocmds.lua` defines autocommands. `nvim-pack-lock.json` records exact plugin revisions; there are no separate source, test, or asset directories.
 
 ## Development and Validation
 
@@ -12,15 +12,15 @@ Run Neovim with this configuration to validate startup and behavior:
 - `nvim --headless -u .\init.lua +q` provides a quick headless startup check after dependencies are installed.
 - `git diff --check` checks the patch for whitespace errors.
 
-There is no build step, test suite, or formatter configured. For UI-dependent changes, launch the config normally and inspect the relevant behavior (for example, the Catppuccin colorscheme or `:NvimTreeToggle`).
+There is no build step or test suite. Format Lua with `stylua .` using `.stylua.toml`. For UI-dependent changes, launch the config normally and inspect the relevant behavior (for example, the Catppuccin colorscheme or `:NvimTreeToggle`).
 
 ## Lua Style and Configuration Practices
 
-Use two spaces for indentation, as in the existing Lua files. Keep Neovim option assignments in `options.lua`, plugin declarations in `lua/plugins/init.lua`, each plugin's setup in its own file under `lua/plugins/`, key mappings in `lua/keymaps.lua`, and autocommands in `lua/autocmds.lua`. Prefer explicit `vim.o`, or `vim.g` assignments consistent with the setting being changed, and add short comments when behavior or timing is not self-evident. Use Neovim's conventional special-key spelling in mappings (for example, `<Esc>`, `<CR>`, and `<C-w>`); command strings conventionally use lowercase `<cmd>`. Preserve valid Lua syntax and keep plugin source names consistent with their lockfile entries. When choosing plugins or writing configuration, first consult current configurations from established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim for comparable patterns, then adapt the approach to this repository's needs.
+Use two spaces for indentation, as in the existing Lua files. Keep Neovim option assignments in `lua/options.lua`, plugin declarations and setup in the corresponding files under `lua/plugins/`, key mappings in `lua/keymaps.lua`, and autocommands in `lua/autocmds.lua`. Prefer explicit `vim.o`, or `vim.g` assignments consistent with the setting being changed, and add short comments when behavior or timing is not self-evident. Use Neovim's conventional special-key spelling in mappings (for example, `<Esc>`, `<CR>`, and `<C-w>`); command strings conventionally use lowercase `<cmd>`. Preserve valid Lua syntax and keep plugin source names consistent with their lockfile entries. When choosing plugins or writing configuration, first consult current configurations from established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim for comparable patterns, then adapt the approach to this repository's needs.
 
 ## Plugin Lockfile
 
-When adding or updating plugins, update the `vim.pack.add` declarations in `init.lua` and regenerate or update `nvim-pack-lock.json` using the supported Neovim package workflow. Review the recorded source and revision in the diff so dependency changes are intentional.
+When adding or updating plugins, update the `vim.pack.add` declarations in the relevant modules under `lua/plugins/` and regenerate or update `nvim-pack-lock.json` using the supported Neovim package workflow. Review the recorded source and revision in the diff so dependency changes are intentional.
 
 ## Commits and Pull Requests
 

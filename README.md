@@ -4,7 +4,7 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 `mini.pairs` automatically inserts matching closing quotes and brackets while typing in Insert mode. `mini.icons` provides filetype icons and a compatibility layer for plugins that use the `nvim-web-devicons` API.
 
-`todo-comments.nvim` highlights code comments such as `TODO:` and `FIXME:`. Use `<leader>fT` to search TODO comments in the project with `fzf-lua`, or `]t` and `[t` to jump to the next and previous comments.
+`todo-comments.nvim` highlights code comments such as `TODO:` and `FIXME:`. Use `<leader>fT` to search TODO comments in the project with Snacks Picker, or `]t` and `[t` to jump to the next and previous comments.
 
 `lualine.nvim` displays the statusline, including LSP task progress from `lsp-progress.nvim`.
 
@@ -16,9 +16,9 @@ Personal Neovim configuration. The entry point is `init.lua`; plugin configurati
 
 `:LspInfo` opens `:checkhealth vim.lsp`. `:LspRestart` runs `:lsp restart` to restart active LSP clients attached to the current buffer; pass a server name, such as `:LspRestart lua_ls`, to restart that server. Server names support command-line completion. These aliases are defined in `lua/plugins/nvim-lspconfig.lua`.
 
-When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use `fzf-lua`.
+When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use Snacks Picker.
 
-`<leader>la` opens LSP code actions with `fzf-lua`; `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
+`<leader>la` opens native LSP code actions through Snacks Picker (`vim.ui.select`); `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
 `snacks.terminal` provides terminals with AstroNvim-style shortcuts (`<leader>` is Space):
 
@@ -29,7 +29,7 @@ When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type defin
 | `<leader>th` | Toggle a bottom terminal, 10 lines high |
 | `<leader>tv` | Toggle a right terminal, 80 columns wide |
 | `<leader>tn` | Create a new bottom terminal alongside any existing bottom terminals |
-| `<leader>tl` | Select a visible or hidden Snacks terminal with fzf-lua, then show and focus it |
+| `<leader>tl` | Select a visible or hidden Snacks terminal with Snacks Picker, then show and focus it |
 | `<C-h/j/k/l>` | Move between windows from a split terminal; floating terminals pass these keys to the shell |
 
 Each layout reuses its own shell per working directory; hiding a terminal keeps its process running. Terminals open in Neovim's current working directory and enter input mode automatically. Use Snacks' default double `<Esc>` (or Neovim's `<C-\><C-n>`) to return to Normal mode, and type `exit` in the shell to end it.
@@ -40,7 +40,9 @@ Each layout reuses its own shell per working directory; hiding a terminal keeps 
 
 `nvim-treesitter` provides highlighting for Rust, Lua, C/C++, Python, Bash, Bazel/Starlark, HTML, CSS, JavaScript/JSX, TypeScript/TSX, JSON, YAML, TOML, Vimscript, and Markdown, including code blocks in LSP hover windows. Its parser list and highlighting configuration live in `lua/plugins/nvim-treesitter.lua`. Startup installs only missing parsers; existing parsers are skipped. Run `:TSUpdate` after updating the plugin to keep parsers compatible.
 
-`fzf-lua` uses `bat` for file previews with the `Catppuccin Macchiato` theme, matching the editor's colorscheme. The installed `bat` must include this theme (`bat --list-themes`).
+`snacks.picker` provides file, text, Git, LSP, help, and undo pickers, plus `vim.ui.select` for selection dialogs. Picker settings live in `lua/plugins/snacks.lua`; search shortcuts live in `lua/keymaps.lua`. Previews use Neovim buffers and the editor's colorscheme.
+
+Search shortcuts: `<leader>ff` finds files, `<leader>fF` includes hidden and ignored files, `<leader>fw` searches project text live, and `<leader>fW` prompts for a search pattern before fuzzy-filtering its results. `<leader>f/` searches the current buffer, including unsaved edits. The previous cross-buffer `<leader>fl` mapping has been removed. `<leader>f<CR>` resumes the previous picker. LSP symbol pickers include all symbol kinds, and `<leader>lD` shows diagnostics across buffers without restricting them to the current directory.
 
 Plugin and configuration choices are informed by current practices in established Neovim distributions such as LazyVim, AstroNvim, NvChad, and LunarVim, adapted to this configuration's needs.
 
@@ -50,15 +52,13 @@ Plugin and configuration choices are informed by current practices in establishe
 | --- | --- | --- |
 | Neovim 0.12+ | Editor and plugin management | Running this configuration |
 | Git | Fetching plugins with `vim.pack` and running Git pickers | Plugin installation and Git features |
-| `fzf` | Fuzzy matching interface for `fzf-lua` | Fuzzy finders |
-| `ripgrep` (`rg`) | Text search in `fzf-lua`; required for grep pickers on Windows | Search pickers |
+| `ripgrep` (`rg`) | Text search in Snacks Picker | Search pickers |
 | `lua-language-server` | Lua completion, diagnostics, and navigation through `lua_ls` | Lua LSP features |
 | `clangd` | C/C++ completion, diagnostics, and navigation | C/C++ LSP features |
 | `rust-analyzer` | Rust completion, diagnostics, and navigation through `rustaceanvim` | Rust LSP features |
 | `tree-sitter` CLI 0.26.1+ | Build Tree-sitter parsers; install through a package manager, not npm | Parser installation and updates |
 | C compiler, `curl`, `tar` | Download and compile Tree-sitter parsers | Parser installation and updates |
 | `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
-| `fd` | Faster file discovery in `fzf-lua` | Optional file-finder enhancement |
-| `bat` | File previews in `fzf-lua` | File previews |
+| `fd` | File discovery in Snacks Picker | Optional file-finder enhancement |
 
 Make sure required executables are available in the `PATH` used to launch Neovim. Plugins are fetched from Git repositories on first install, so Git access to those repositories is also needed.
