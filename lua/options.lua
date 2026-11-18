@@ -17,6 +17,9 @@ vim.o.mouse = 'a'
 -- Show the current mode (such as INSERT or VISUAL) in the command area.
 vim.o.showmode = true
 
+-- Use the client terminal's clipboard when editing Linux over SSH.
+if vim.fn.has 'linux' == 1 and vim.env.SSH_CONNECTION then vim.g.clipboard = 'osc52' end
+
 -- Sync Neovim's unnamed register with the operating system clipboard.
 -- Schedule this after startup because clipboard initialization can add startup time.
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
