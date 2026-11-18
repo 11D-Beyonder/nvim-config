@@ -90,5 +90,7 @@ vim.o.confirm = true
 -- The terminal must support true color for the full effect to appear.
 vim.o.termguicolors = true
 
+vim.o.exrc = true
+
 -- Use this font in Neovide, the graphical Neovim client.
 if vim.g.neovide then vim.opt.guifont = 'Maple_Mono_NF_CN,JetBrains_Mono,Fira_Code:h12' end
