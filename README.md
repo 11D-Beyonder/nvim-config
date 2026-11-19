@@ -14,6 +14,8 @@ On Linux over SSH, Neovim uses OSC 52 to copy text to the client terminal's clip
 
 `bufferline.nvim` displays open buffers in a tabline. Use `]b` and `[b` to move between buffers, `<leader>x` to close the current buffer, `<leader>bb` to pick a buffer, `<leader>bc` to close other buffers, and `<leader>bd` to pick buffers to close.
 
+In Normal mode, press `Space` then `e` to toggle NvimTree. Press `Space` then `Shift+E` from a file buffer to open the tree if needed and move the cursor to the current file's entry.
+
 `auto-save.nvim` saves named, writable file buffers 1 second after the last change, including while in Insert mode. It also saves immediately when leaving a buffer, losing focus, quitting, or suspending Neovim. Use `:ASToggle` to toggle auto-save. Unnamed buffers need an initial manual save to choose a filename. Following AstroCommunity's approach, automatic saves skip Conform formatting while manual saves still format; other write events remain enabled.
 
 `nvim-lspconfig` enables `lua_ls` for Lua and `clangd` for C/C++.
