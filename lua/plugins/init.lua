@@ -1,6 +1,7 @@
 require 'plugins.plenary'
 require 'plugins.mini'
 require 'plugins.snacks'
+require 'plugins.smart-splits'
 require 'plugins.noice'
 require 'plugins.catppuccin'
 require 'plugins.nvim-treesitter'

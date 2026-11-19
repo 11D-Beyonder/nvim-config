@@ -45,6 +45,13 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
+local smart_splits = require 'smart-splits'
+vim.keymap.set('n', '<C-Up>', smart_splits.resize_up, { desc = 'Resize split up' })
+vim.keymap.set('n', '<C-Down>', smart_splits.resize_down, { desc = 'Resize split down' })
+vim.keymap.set('n', '<C-Left>', smart_splits.resize_left, { desc = 'Resize split left' })
+vim.keymap.set('n', '<C-Right>', smart_splits.resize_right, { desc = 'Resize split right' })
+vim.keymap.set('n', '<C-+>', Snacks.zen.zoom, { desc = 'Toggle Zoom Mode' })
+
 -- Keep shell shortcuts in floating terminals, as AstroNvim does.
 for _, direction in ipairs { 'h', 'j', 'k', 'l' } do
   vim.keymap.set('t', '<C-' .. direction .. '>', function()
