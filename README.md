@@ -20,6 +20,8 @@ In Normal mode, press `Space` then `e` to toggle NvimTree. Press `Space` then `S
 
 `nvim-lspconfig` enables `lua_ls` for Lua and `clangd` for C/C++.
 
+Neovim displays inlay hints by default in any buffer where an attached language server provides them.
+
 `:LspInfo` opens `:checkhealth vim.lsp`. `:LspRestart` runs `:lsp restart` to restart active LSP clients attached to the current buffer; pass a server name, such as `:LspRestart lua_ls`, to restart that server. Server names support command-line completion. These aliases are defined in `lua/plugins/nvim-lspconfig.lua`.
 
 When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use Snacks Picker.

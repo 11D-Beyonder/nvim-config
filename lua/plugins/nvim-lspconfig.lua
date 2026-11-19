@@ -5,6 +5,8 @@ vim.pack.add {
 
 require('lazydev').setup()
 
+vim.lsp.inlay_hint.enable(true)
+
 vim.api.nvim_create_user_command('LspInfo', 'checkhealth vim.lsp', {
   desc = 'Show LSP health and configuration',
 })
