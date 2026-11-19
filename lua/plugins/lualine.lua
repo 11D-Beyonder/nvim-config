@@ -1,5 +1,4 @@
-vim.pack.add { 'https://github.com/nvim-lualine/lualine.nvim', 'https://github.com/linrongbin16/lsp-progress.nvim' }
-require('lsp-progress').setup {}
+vim.pack.add { 'https://github.com/nvim-lualine/lualine.nvim' }
 require('lualine').setup {
   options = {
     globalstatus = true,
@@ -10,16 +9,15 @@ require('lualine').setup {
   sections = {
     lualine_a = { { 'mode', separator = { left = '' } } },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { function() return require('lsp-progress').progress() end },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_c = { { require('noice').api.status.progress.get, cond = require('noice').api.status.progress.has } },
+    lualine_x = {
+      { require('noice').api.status.command.get, cond = require('noice').api.status.command.has },
+      { require('noice').api.status.mode.get, cond = require('noice').api.status.mode.has },
+      { require('noice').api.status.search.get, cond = require('noice').api.status.search.has },
+    },
     lualine_y = { 'progress' },
     lualine_z = {
       { 'location', separator = { right = '' } },
     },
   },
 }
-vim.api.nvim_create_autocmd('User', {
-  group = vim.api.nvim_create_augroup('lualine_augroup', { clear = true }),
-  pattern = 'LspProgressStatusUpdated',
-  callback = require('lualine').refresh,
-})

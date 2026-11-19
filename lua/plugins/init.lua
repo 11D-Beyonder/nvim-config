@@ -1,6 +1,7 @@
 require 'plugins.plenary'
 require 'plugins.mini'
 require 'plugins.snacks'
+require 'plugins.noice'
 require 'plugins.catppuccin'
 require 'plugins.nvim-treesitter'
 require 'plugins.render-markdown'
