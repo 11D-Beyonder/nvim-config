@@ -25,7 +25,7 @@ When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type defin
 
 `<leader>la` opens native LSP code actions through Snacks Picker (`vim.ui.select`); `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 
-In Normal mode, `Ctrl` + arrow keys move split boundaries through `smart-splits.nvim`. Press `Ctrl` + `+` to zoom the current window with Snacks, and press it again to return to the split layout.
+In Normal mode, press `Space` then `-` to split below, or `Space` then `|` to split to the right. `Ctrl` + arrow keys move split boundaries through `smart-splits.nvim`. Press `Ctrl` + `+` to zoom the current window with Snacks, and press it again to return to the split layout.
 
 `snacks.terminal` provides terminals with AstroNvim-style shortcuts (`<leader>` is Space):
 
