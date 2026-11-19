@@ -21,6 +21,7 @@ On Linux over SSH, Neovim uses OSC 52 to copy text to the client terminal's clip
 `:LspInfo` opens `:checkhealth vim.lsp`. `:LspRestart` runs `:lsp restart` to restart active LSP clients attached to the current buffer; pass a server name, such as `:LspRestart lua_ls`, to restart that server. Server names support command-line completion. These aliases are defined in `lua/plugins/nvim-lspconfig.lua`.
 
 When an LSP attaches, `gd` finds definitions, `gD` declarations, `gy` type definitions, `gi` implementations, `gO` document symbols, and `gr` references. All six mappings use Snacks Picker.
+`gr` triggers immediately, taking precedence over Neovim's longer `gr` mappings in normal mode. Press `<CR>` to jump to the selected reference, or let the picker jump directly when there is only one result.
 
 `<leader>la` opens native LSP code actions through Snacks Picker (`vim.ui.select`); `<leader>lr` renames the symbol using the floating input prompt provided by `snacks.input`. The input module replaces `vim.ui.input` throughout Neovim.
 

@@ -27,6 +27,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gy', picker.lsp_type_definitions, { buffer = event.buf, desc = 'Goto type definition' })
     vim.keymap.set('n', 'gi', picker.lsp_implementations, { buffer = event.buf, desc = 'Goto implementation' })
     vim.keymap.set('n', 'gO', picker.lsp_symbols, { buffer = event.buf, desc = 'Document symbols' })
-    vim.keymap.set('n', 'gr', picker.lsp_references, { buffer = event.buf, desc = 'References' })
+    vim.keymap.set('n', 'gr', picker.lsp_references, { buffer = event.buf, nowait = true, desc = 'Goto references' })
   end,
 })
