@@ -42,7 +42,9 @@ Each layout reuses its own shell per working directory; hiding a terminal keeps 
 
 `rustaceanvim` is constrained to version 9.x and manages rust-analyzer for Rust files. Automatic checks use `cargo check` instead of Clippy. In Rust buffers, `<leader>la` opens its grouped code actions and `K` shows hover actions. Navigation and rename mappings use the standard LSP interface with rustaceanvim's client.
 
-`nvim-treesitter` provides highlighting for Rust, Lua, C/C++, Python, Bash, Bazel/Starlark, HTML, CSS, JavaScript/JSX, TypeScript/TSX, JSON, YAML, TOML, Vimscript, and Markdown, including code blocks in LSP hover windows. Its parser list and highlighting configuration live in `lua/plugins/nvim-treesitter.lua`. Startup installs only missing parsers; existing parsers are skipped. Run `:TSUpdate` after updating the plugin to keep parsers compatible.
+`nvim-treesitter` provides highlighting for Rust, Lua, C/C++, Python, Bash, Bazel/Starlark, HTML, CSS, JavaScript/JSX, TypeScript/TSX, JSON, YAML, TOML, Vimscript, Markdown, and LaTeX, including code blocks in LSP hover windows. Its parser list and highlighting configuration live in `lua/plugins/nvim-treesitter.lua`. Startup installs only missing parsers; existing parsers are skipped. Run `:TSUpdate` after updating the plugin to keep parsers compatible.
+
+`render-markdown.nvim` renders Markdown inside Neovim using the plugin's default appearance. Inline `$...$` and block `$$...$$` formulas use `utftex` and the LaTeX parser; the rendered formula replaces its source visually while the file retains the original LaTeX. Use `:RenderMarkdown toggle` to toggle rendering and `:RenderMarkdown preview` to open a side preview. Configuration lives in `lua/plugins/render-markdown.lua`.
 
 `snacks.picker` provides file, text, Git, LSP, help, and undo pickers, plus `vim.ui.select` for selection dialogs. Picker settings live in `lua/plugins/snacks.lua`; search shortcuts live in `lua/keymaps.lua`. Previews use Neovim buffers and the editor's colorscheme.
 
@@ -62,6 +64,7 @@ Plugin and configuration choices are informed by current practices in establishe
 | `rust-analyzer` | Rust completion, diagnostics, and navigation through `rustaceanvim` | Rust LSP features |
 | `tree-sitter` CLI 0.26.1+ | Build Tree-sitter parsers; install through a package manager, not npm | Parser installation and updates |
 | C compiler, `curl`, `tar` | Download and compile Tree-sitter parsers | Parser installation and updates |
+| `utftex` (from `libtexprintf`) | Render LaTeX as Unicode formulas | Formula previews in Markdown |
 | `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
 | `fd` | File discovery in Snacks Picker | Optional file-finder enhancement |
 
