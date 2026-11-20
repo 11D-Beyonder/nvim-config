@@ -1,3 +1,8 @@
+-- TODO: Once Neovim 0.13 is stable, use vim.pack.get(nil, { offline = false })
+-- to check for plugin updates in the background at startup and notify when available.
+-- To update all plugins now, run :lua vim.pack.update(), review the changes,
+-- then use :w in the confirmation buffer and restart Neovim.
+
 -- Skip formatting during auto-save while keeping other write events active.
 vim.api.nvim_create_autocmd('User', {
   group = vim.api.nvim_create_augroup('auto-save-format', { clear = true }),

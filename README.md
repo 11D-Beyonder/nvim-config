@@ -2,6 +2,8 @@
 
 Personal Neovim configuration. The entry point is `init.lua`; plugin configuration lives in `lua/plugins/` and plugins are managed with Neovim's built-in `vim.pack`.
 
+To update plugins, run `:lua vim.pack.update()`, review the proposed revisions, then save the confirmation buffer with `:w` and restart Neovim. The selected revisions are recorded in `nvim-pack-lock.json`.
+
 `exrc` enables project-local configuration through `.nvim.lua`, `.nvimrc`, or `.exrc` files. Neovim only executes trusted files; use `:trust` to manage trust.
 
 On Linux over SSH, Neovim uses OSC 52 to copy text to the client terminal's clipboard, so `yy` can copy a line to your Mac. Both iTerm2 and WezTerm support this; in iTerm2, enable **Settings → General → Selection → Applications in terminal may access clipboard**. Other environments retain automatic clipboard provider selection. Paste from the Mac with `⌘V`: WezTerm ignores OSC 52 clipboard read requests, so Neovim's `p` can wait and time out.
