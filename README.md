@@ -8,6 +8,8 @@ On Linux over SSH, Neovim uses OSC 52 to copy text to the client terminal's clip
 
 `mini.pairs` automatically inserts matching closing quotes and brackets while typing in Insert mode. `mini.icons` provides filetype icons and a compatibility layer for plugins that use the `nvim-web-devicons` API.
 
+`snacks.indent` draws indentation guides with `┃` and highlights the current scope. `rainbow-delimiters.nvim` colors matching delimiters by nesting level in supported Tree-sitter languages.
+
 `todo-comments.nvim` highlights code comments such as `TODO:` and `FIXME:`. Use `<leader>fT` to search TODO comments in the project with Snacks Picker, or `]t` and `[t` to jump to the next and previous comments.
 
 `lualine.nvim` displays the statusline, including the latest LSP task progress from Noice. Progress appears only in the statusline and clears when the task finishes. The right side shows Noice's pending command, mode/recording status, and search count, plus file position. Encoding, file format, filetype, and recent messages are omitted to keep the statusline compact.
