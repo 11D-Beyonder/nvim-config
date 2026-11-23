@@ -25,6 +25,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "dropbar.nvim": {
+      "rev": "75df03973f3a06a85300bc8ca1f9f68e935cb78e",
+      "src": "https://github.com/Bekaboo/dropbar.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
