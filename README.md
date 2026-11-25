@@ -77,7 +77,7 @@ Plugin and configuration choices are informed by current practices in establishe
 | `lua-language-server` | Lua completion, diagnostics, and navigation through `lua_ls` | Lua LSP features |
 | `clangd` | C/C++ completion, diagnostics, and navigation | C/C++ LSP features |
 | `rust-analyzer` | Rust completion, diagnostics, and navigation through `rustaceanvim` | Rust LSP features |
-| `tree-sitter` CLI 0.26.1+ | Build Tree-sitter parsers; install through a package manager, not npm | Parser installation and updates |
+| [`tree-sitter` CLI](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md) | Build Tree-sitter parsers; install through a package manager, not npm | Parser installation and updates |
 | C compiler, `curl`, `tar` | Download and compile Tree-sitter parsers | Parser installation and updates |
 | `utftex` (from `libtexprintf`) | Render LaTeX as Unicode formulas | Formula previews in Markdown |
 | `stylua` | Formatting Lua files through `conform.nvim` | Lua formatting |
