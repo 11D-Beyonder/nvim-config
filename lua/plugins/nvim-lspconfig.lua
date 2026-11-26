@@ -38,3 +38,13 @@ for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
+
+vim.api.nvim_create_user_command('LspStart', function()
+  if vim.bo.filetype == 'rust' then
+    vim.cmd.RustAnalyzer 'start'
+    return
+  end
+  for name in pairs(servers) do
+    if vim.tbl_contains(vim.lsp.config[name].filetypes, vim.bo.filetype) then vim.lsp.enable(name) end
+  end
+end, { desc = 'Start LSP for the current filetype' })
