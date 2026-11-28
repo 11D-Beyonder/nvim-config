@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>fk', picker.keymaps, { desc = 'Find keymaps' })
 vim.keymap.set('n', '<leader>fm', picker.man, { desc = 'Find man pages' })
 vim.keymap.set('n', '<leader>fo', picker.recent, { desc = 'Find recent files' })
 vim.keymap.set('n', '<leader>fO', function() picker.recent { filter = { cwd = true } } end, { desc = 'Find recent files in cwd' })
+vim.keymap.set('n', '<leader>fn', picker.notifications, { desc = 'Find notifications' })
 vim.keymap.set('n', "<leader>f'", picker.marks, { desc = 'Find marks' })
 vim.keymap.set('n', '<leader>fr', picker.registers, { desc = 'Find registers' })
 vim.keymap.set('n', '<leader>fs', picker.lsp_symbols, { desc = 'Find document symbols' })
@@ -63,7 +64,7 @@ for _, direction in ipairs { 'h', 'j', 'k', 'l' } do
   end, { expr = true, desc = 'Move focus from terminal ' .. direction })
 end
 
-vim.keymap.set({ 'n', 't', 'i' }, "<C-'>", function()
+vim.keymap.set({ 'n', 't', 'i' }, '<C-`>', function()
   for _, terminal in ipairs(Snacks.terminal.list()) do
     if terminal.buf == vim.api.nvim_get_current_buf() then
       terminal:hide()

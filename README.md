@@ -63,7 +63,7 @@ Each layout reuses its own shell per working directory; hiding a terminal keeps 
 
 `render-markdown.nvim` renders Markdown inside Neovim using the plugin's default appearance. Inline `$...$` and block `$$...$$` formulas use `utftex` and the LaTeX parser; the rendered formula replaces its source visually while the file retains the original LaTeX. Use `:RenderMarkdown toggle` to toggle rendering and `:RenderMarkdown preview` to open a side preview. Configuration lives in `lua/plugins/render-markdown.lua`.
 
-`snacks.picker` provides file, text, Git, LSP, help, and undo pickers, plus `vim.ui.select` for selection dialogs. Picker settings live in `lua/plugins/snacks.lua`; search shortcuts live in `lua/keymaps.lua`. Previews use Neovim buffers and the editor's colorscheme.
+`snacks.picker` provides file, text, Git, LSP, help, undo, and notification history pickers, plus `vim.ui.select` for selection dialogs. Use `<leader>fn` to search and filter notification history. Snacks Notifier renders notifications routed by Noice. Picker settings live in `lua/plugins/snacks.lua`; search shortcuts live in `lua/keymaps.lua`. Previews use Neovim buffers and the editor's colorscheme.
 
 Search shortcuts: `<leader>ff` finds files, `<leader>fF` includes hidden and ignored files, `<leader>fw` searches project text live, and `<leader>fW` prompts for a search pattern before fuzzy-filtering its results. `<leader>f/` searches the current buffer, including unsaved edits. The previous cross-buffer `<leader>fl` mapping has been removed. `<leader>f<CR>` resumes the previous picker. LSP symbol pickers include all symbol kinds, and `<leader>lD` shows diagnostics across buffers without restricting them to the current directory.
 

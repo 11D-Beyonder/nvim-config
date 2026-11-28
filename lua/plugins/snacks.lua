@@ -18,4 +18,5 @@ require('snacks').setup {
   },
   terminal = { enabled = true },
   scroll = {},
+  notifier = {},
 }
