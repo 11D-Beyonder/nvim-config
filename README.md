@@ -45,7 +45,7 @@ In Normal mode, press `Space` then `-` to split below, or `Space` then `|` to sp
 
 | Shortcut | Action |
 | --- | --- |
-| `<C-'>` | Hide the current Snacks terminal, or toggle the bottom terminal from an editor buffer; available in Normal, Insert, and Terminal modes |
+| `<C-`>` | Hide the current Snacks terminal, or toggle the bottom terminal from an editor buffer; available in Normal, Insert, and Terminal modes |
 | `<leader>tf` | Toggle a floating terminal |
 | `<leader>th` | Toggle a bottom terminal, 10 lines high |
 | `<leader>tv` | Toggle a right terminal, 80 columns wide |
